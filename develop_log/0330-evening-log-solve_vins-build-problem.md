@@ -489,3 +489,19 @@ projection_parameters:
 后续你们团队在联调时，系统的物理边界就在 `ego2d_ws` 的输出端。规划层算出轨迹或速度指令后，你们只需要写一个轻量级的 **ROS 2 控制桥接节点 (Bridge Node)**。这个节点的作用就是订阅规划出的指令，然后通过 EtherCAT 协议栈（比如开源的 SOEM 库）打包下发给电调或电机驱动器。
 
 从常见的微控制器（比如用 STM32 跑串口或 CAN 通信的底盘开发）跨越到工业级、超高频实时的 EtherCAT 协议，确实需要一点时间去消化它的 PDO/SDO 映射机制。先在纯软件层面把“感知 -> 定位 -> 规划”这条数据流跑通，并在 Rviz 中验证无误，能为你们后面跑实车节省巨大的排错成本。
+
+
+
+
+
+
+
+## 下一步
+
+适当/不参考ros1的ego, 我们需要的是发布速度给底盘
+
+![image-20260330203647764](0330-evening-log-solve_vins-build-problem.assets/image-20260330203647764.png)
+
+![image-20260330203619956](0330-evening-log-solve_vins-build-problem.assets/image-20260330203619956.png)
+
+找ai修改cpp，目前的ros2 ego的版本只是发布了轨迹
